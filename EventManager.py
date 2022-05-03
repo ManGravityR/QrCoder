@@ -2,6 +2,7 @@ import glob
 from datetime import datetime
 from pathlib import Path
 from colorama import init, Fore, Back, Style
+from Package import Package
 
 from QrCoder import QrCoder
 
@@ -26,6 +27,8 @@ class EventManager(object):
         """
 
         init()
+
+        self.pkg = Package()
 
         # Connect Qr Class
         self.qr = QrCoder()
@@ -78,6 +81,7 @@ class EventManager(object):
 
     def menu(self):
         # Menu wrapper for first run
+        print(self.pkg.package_info())
         print('=== MENU ===')
         print('Hey! Here is what I can do:')
         while True:
